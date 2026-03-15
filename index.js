@@ -6,6 +6,8 @@ const cors = require("cors");
 const { connectDB, getDB } = require("./db");
 //Import users route
 const userRoutes = require("./routes/users");
+//Import posts route
+const postRoutes = require("./routes/posts");
 
 //Create express app
 const app = express();
@@ -18,6 +20,9 @@ app.use(express.json());
 
 //Use userRoutes for all requests starting with /users
 app.use("/users", userRoutes);
+
+//Use postRoutes for all requests starting with /posts
+app.use("/posts", postRoutes);
 
 //Root route
 app.get("/", (req, res) => {
